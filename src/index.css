@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --azul: #3b82f6;
     --blanco: #ffffff;
@@ -52,7 +56,6 @@ header h1 {
     margin: 0;
     color: var(--blanco);
     text-align: center;
-
     text-transform: uppercase;
 }
 
@@ -73,20 +76,20 @@ header h1 {
     display: block;
     text-transform: uppercase;
     color: var(--blanco);
-    margin-bottom: 4rem;
-    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--azul);
 }
 .formulario .campo {
     display: grid;
-    margin-bottom: 2rem;
+    margin-bottom: 0.3rem;
 }
 
 .formulario label {
     color: var(--azul);
     font-size: 2.8rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.3rem;
 }
 
 .formulario input[type="text"],
@@ -97,6 +100,7 @@ header h1 {
     border: none;
     flex: 1;
     font-size: 1.6rem;
+
 }
 .formulario input[type="submit"] {
     background-color: #1048a4;
@@ -110,6 +114,7 @@ header h1 {
     font-size: 1.9rem;
     width: 100%;
     transition: background-color 300ms ease;
+    border-radius: 1rem;
 }
 @media (min-width: 768px) {
     .formulario input[type="submit"] {
@@ -142,8 +147,12 @@ header h1 {
 }
 .alerta.error {
     background-color: var(--blanco);
-    border-left: 5px solid #b91c1c;
     color: #b91c1c;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    border-color: rgb(185 28 28);
+    border-width: 1.4px;
+
 }
 .alerta.success {
 }
