@@ -9,7 +9,9 @@ function App() {
 
   const [gastos, setGastos] = useState([]);
 
-  const [presupuesto, setPresupuesto] = useState(0);
+  const [presupuesto, setPresupuesto] = useState(
+    JSON.parse(localStorage.getItem('presupuesto')) || 0
+  );
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);
 
   const [modal, setModal] = useState(false);
@@ -27,6 +29,17 @@ function App() {
     }
   }, [gastoEditar]);
 
+  useEffect(() => {
+    localStorage.setItem('presupuesto', presupuesto ?? 0)
+  }, [presupuesto]);
+
+  useEffect(() => {
+    const presupuestoLS = Number(localStorage.getItem('presupuesto')) ?? 0
+      if(presupuestoLS > 0) {
+        setIsValidPresupuesto(true);
+      }
+  }, []);
+
   const handleNuevoGasto = () => {
     setModal(true);
     setGastoEditar({});
@@ -41,6 +54,7 @@ function App() {
       //Actualizar gasto
       const gastoActualizados = gastos.map(gastoState => gastoState.id === gasto.id ? gasto : gastoState)
       setGastos(gastoActualizados);
+      setGastoEditar({});
     } else {
       //Nuevo gasto
       gasto.id = generarId();
@@ -98,6 +112,7 @@ function App() {
           setAnimarModal={setAnimarModal}
           guardarGasto={guardarGasto}
           gastoEditar={gastoEditar}
+          setGastoEditar={setGastoEditar}
         />
       }
     </div>
