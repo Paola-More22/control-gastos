@@ -4,7 +4,7 @@ import Gasto from './Gasto'
 const ListadoGastos = ({
         gastos,
         setGastoEditar,
-        eliminarGasto, 
+        eliminarGasto,
         filtro,
         gastosFiltrados
     }) => {
